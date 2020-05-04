@@ -1,16 +1,14 @@
 {
   "name": "express-webpack-typescript",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "test project",
   "main": "dist/server.js",
   "scripts": {
     "clean": "rimraf dist/*",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
-    "tsc": "tsc",
     "build": "webpack",
     "start:dev": "SET NODE_ENV=development webpack",
-    "run:dev": "SET NODE_ENV=development & nodemon dist/server.js",
-    "dev:start": "npm-run-all build start",
+    "run:dev": "SET NODE_ENV=development webpack & nodemon --watch src -e ts,ejs",
     "start": "node .",
     "test": "jest --watch"
   },
@@ -30,12 +28,15 @@
     "circular-json": "^0.5.9",
     "cookie-parser": "^1.4.4",
     "cookie-session": "^1.4.0",
+    "copy-webpack-plugin": "^5.1.1",
     "dotenv": "^8.2.0",
     "ejs": "^2.7.4",
+    "ejs-html-loader": "^4.0.1",
     "express": "^4.17.1",
     "greenlock-express": "^4.0.3",
     "helmet": "^3.21.2",
     "request": "^2.88.0",
+    "webpack-shell-plugin": "^0.5.0",
     "ws": "^4.1.0"
   },
   "devDependencies": {
@@ -66,6 +67,7 @@
     "rimraf": "^3.0.0",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2",
+    "text-loader": "0.0.1",
     "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.2",
     "ts-node": "^8.6.2",
